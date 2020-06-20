@@ -1,0 +1,5 @@
+.crumb:not(:last-child):after {
+    content: ' > ';
+    display: 'block';
+    @apply mx-2;
+}
