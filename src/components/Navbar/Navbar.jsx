@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
+import {normalise} from '../util'
 
 const navQuery = graphql`
 	query NavQuery {
@@ -24,8 +25,6 @@ const navQuery = graphql`
 	}
 `
 
-const normalise = (path) => `/${path.split('/').filter(Boolean).join('/')}`
-
 const Navigation = () => {
 	const data = useStaticQuery(navQuery)
 	const articleDir = `${data.directory.dir}/${data.site.siteMetadata.articleDir}`
@@ -44,12 +43,6 @@ const Navigation = () => {
 			const topLevel = page.path.split('/').filter(Boolean).length === 1
 			const pathIdx = `/${pathArr.join('/')}`
 			const prevPath = pathArr.slice(0, pathArr.length - 1).join('/')
-
-			// console.log({
-			// 	prevPath, pathIdx, path: page.path, pathArr: pathArr.join('/'),
-			// })
-
-			console.log(normalise(page.path))
 			const lvl = page.path.split('/').filter(Boolean).length
 			return (
 				(pathArr.length === 0 && topLevel) // are we on home?
@@ -67,7 +60,7 @@ const Navigation = () => {
 
 	return (
 		<aside className="col-span-3">
-			<nav className="border-r-2 box-content mr-2 h-full">
+			<nav className="border-r-2 box-content h-full">
 				<ul>
 					{hierarchy.map((edge) => (
 						<li key={edge.path}>
