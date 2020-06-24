@@ -35,8 +35,6 @@ export default function useSearch() {
 		const articlePathRaw = edge.node.fileAbsolutePath.replace(articleDir, '').replace(/.mdx$/, '')
 		const articlePath = articlePathRaw.match(/index$/) ? articlePathRaw.replace(/index$/, '') : articlePathRaw
 		const bodyNoFrontmatter = clearMd(edge.node.rawBody.replace(/^(-){3,}\n(.|\n)*\n(-){3,}/, ''))
-		console.log({bodyNoFrontmatter})
-
 		return {
 			path: articlePath,
 			title: edge.node.frontmatter.title,

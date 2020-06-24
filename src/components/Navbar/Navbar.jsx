@@ -55,7 +55,7 @@ const Navigation = () => {
 				|| normalise(prevPath) === normalise(page.path)
 			)
 		})
-		.map((page) => ({selected: window.location.pathname === page.path, ...page}))
+		.map((page) => ({selected: pathname === page.path, ...page}))
 		.sort((a, b) => a.path.length - b.path.length)
 
 	hierarchy.unshift({path: '/', title: 'Home'})
