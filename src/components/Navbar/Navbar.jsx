@@ -1,8 +1,8 @@
 import React from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
-import {normalise} from '../util'
+import {useLocation} from '@reach/router'
 
-import './navbar.scss'
+import {normalise} from '../util'
 
 const navQuery = graphql`
 	query NavQuery {
@@ -28,9 +28,9 @@ const navQuery = graphql`
 `
 
 const Navigation = () => {
+	const {pathname} = useLocation()
 	const data = useStaticQuery(navQuery)
 	const articleDir = `${data.directory.dir}/${data.site.siteMetadata.articleDir}`
-	const {pathname} = window.location
 	const pathArr = pathname.split('/').filter(Boolean)
 
 	const curLevel = pathArr.length

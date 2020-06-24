@@ -1,4 +1,4 @@
-$cols: red, yellow, green, blue, purple;
+$cols: red, green, blue, purple;
 
 li.child-0 {
 	@apply border-#{nth($cols, 1)}-200

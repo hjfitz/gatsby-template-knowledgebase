@@ -1,5 +1,7 @@
 import React from 'react'
 import {useStaticQuery, graphql, Link} from 'gatsby'
+import {useLocation} from '@reach/router'
+
 import './header.scss'
 
 import Search from '../Search/Search'
@@ -7,6 +9,7 @@ import Search from '../Search/Search'
 const getBreadcrumbPath = (index, arr) => `/${arr.slice(0, index + 1).join('/')}`
 
 const Header = () => {
+	const {pathname} = useLocation()
 	const {site} = useStaticQuery(
 		graphql`
 			query HeaderQuery {
@@ -19,7 +22,7 @@ const Header = () => {
 		,
 	)
 
-	const breadcrumbArr = window.location.pathname
+	const breadcrumbArr = pathname
 		.split('/')
 		.filter(Boolean)
 		.map((el) => el.replace(/-/g, ' ').toLowerCase())

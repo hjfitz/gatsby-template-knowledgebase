@@ -4,6 +4,8 @@
 
 @tailwind utilities;
 
+@import "../components/Navbar/navbar.scss";
+
 html, body, #___gatsby {
     @apply h-full;
 }
