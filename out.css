@@ -1,0 +1,14 @@
+.nav:nth-child(1n) {
+  @apply border-red-200; }
+
+.nav:nth-child(2n) {
+  @apply border-yellow-200; }
+
+.nav:nth-child(3n) {
+  @apply border-green-200; }
+
+.nav:nth-child(4n) {
+  @apply border-blue-200; }
+
+.nav:nth-child(5n) {
+  @apply border-purple-200; }

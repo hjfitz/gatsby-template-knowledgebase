@@ -2,6 +2,8 @@ import React from 'react'
 import {Link, useStaticQuery, graphql} from 'gatsby'
 import {normalise} from '../util'
 
+import './navbar.scss'
+
 const navQuery = graphql`
 	query NavQuery {
 		directory {
@@ -61,9 +63,9 @@ const Navigation = () => {
 	return (
 		<aside className="col-span-3">
 			<nav className="border-r-2 box-content h-full">
-				<ul>
+				<ul className="nav">
 					{hierarchy.map((edge) => (
-						<li key={edge.path}>
+						<li className={`border-l-4 child-${edge.path.split('/').filter(Boolean).length}`} key={edge.path}>
 							<Link className="hover:bg-blue-100 py-1 px-4 h-full w-full block" to={edge.path}>
 								{edge.title}
 							</Link>

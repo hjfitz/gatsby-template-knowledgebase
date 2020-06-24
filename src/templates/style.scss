@@ -7,3 +7,9 @@
 html, body, #___gatsby {
     @apply h-full;
 }
+
+#___gatsby > div {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}

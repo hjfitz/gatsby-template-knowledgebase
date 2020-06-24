@@ -1,0 +1,13 @@
+$cols: red, yellow, green, blue, purple;
+
+li.child-0 {
+	@apply border-#{nth($cols, 1)}-200
+}
+
+@for $i from 1 through length($cols) {
+	li.child-#{$i} {
+		$cur: nth($cols, $i);
+		@apply border-#{$cur}-200;
+	}
+}
+

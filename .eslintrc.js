@@ -20,7 +20,7 @@ module.exports = {
     ],
     "rules": {
         'no-restricted-syntax': 0,
-        'no-console': 0,
+        // 'no-console': 0,
         'global-require': 0,
         'semi': 0,
         'object-curly-spacing': ["error", "never"],
